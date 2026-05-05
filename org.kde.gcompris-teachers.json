@@ -1,77 +1,77 @@
 {
-  "id": "org.kde.gcompris-teachers",
-  "runtime": "org.kde.Platform",
-  "runtime-version": "6.10",
-  "sdk": "org.kde.Sdk",
-  "rename-icon": "gcompris-teachers",
-  "command": "gcompris-teachers",
-  "finish-args": [
-      "--socket=pulseaudio",
-      "--share=ipc",
-      "--socket=fallback-x11",
-      "--socket=wayland",
-      "--share=network",
-      "--device=dri"
-  ],
-   "cleanup": [
-       "/include",
-       "/mkspecs",
-       "/sbom",
-       "/lib/*/cmake",
-       "/lib/*/pkgconfig"
-  ],
-  "modules": [
-      {
-          "name": "qt6-graphs",
-          "buildsystem": "cmake-ninja",
-          "sources": [
-              {
-                  "type": "git",
-                  "url": "https://github.com/qt/qtgraphs.git",
-                  "tag": "v6.10.2",
-                  "commit": "6cd2b17ad3828029520c5b590060bff91ac43ceb",
-                  "x-checker-data": {
-                      "type": "git",
-                      "tag-pattern": "^v([\\d.]+)$",
-                      "//": "make sure version matches kde runtime version of org.kde.Platform",
-                      "versions": {
-                          ">=": "v6.10",
-                          "<": "v6.11"
-                      }
-                  }
-              }
-          ]
-      },
-      {
-          "name": "gcompris-teachers",
-          "buildsystem": "cmake",
-          "builddir": true,
-          "config-opts": [
-              "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
-              "-DQML_BOX2D_MODULE=disabled",
-              "-DPACKAGE_GCOMPRIS=OFF",
-              "-DPACKAGE_SERVER=ON"
-          ],
-          "sources": [
-              {
-                  "type": "archive",
-                  "url": "https://download.kde.org/stable/gcompris/qt/src/gcompris-qt-26.1.tar.xz",
-                  "sha256": "c389b863b29f012ccc1b3eef740982ff6c7654c13a2e343397ee466124f31339",
-                  "x-checker-data": {
-                      "type": "anitya",
-                      "project-id": 141336,
-                      "url-template": "https://download.kde.org/stable/gcompris/qt/src/gcompris-qt-$version.tar.xz"
-                  }
-              },
-              {
-                  "type": "patch",
-                  "path": "patches/files.patch"
-              },
-              {
-                  "type": "patch",
-                  "path": "patches/icon.patch"
-              }
-          ]
-      }
-  ]
+    "id": "org.kde.gcompris-teachers",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "6.10",
+    "sdk": "org.kde.Sdk",
+    "rename-icon": "gcompris-teachers",
+    "command": "gcompris-teachers",
+    "finish-args": [
+        "--socket=pulseaudio",
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--share=network",
+        "--device=dri"
+    ],
+    "cleanup": [
+        "/include",
+        "/mkspecs",
+        "/sbom",
+        "/lib/*/cmake",
+        "/lib/*/pkgconfig"
+    ],
+    "modules": [
+        {
+            "name": "qt6-graphs",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/qt/qtgraphs.git",
+                    "tag": "v6.10.3",
+                    "commit": "6904a774600801aa2931413e47659ae70faf3e8e",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$",
+                        "//": "make sure version matches kde runtime version of org.kde.Platform",
+                        "versions": {
+                            ">=": "v6.10",
+                            "<": "v6.11"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "gcompris-teachers",
+            "buildsystem": "cmake",
+            "builddir": true,
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+                "-DQML_BOX2D_MODULE=disabled",
+                "-DPACKAGE_GCOMPRIS=OFF",
+                "-DPACKAGE_SERVER=ON"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.kde.org/stable/gcompris/qt/src/gcompris-qt-26.1.tar.xz",
+                    "sha256": "c389b863b29f012ccc1b3eef740982ff6c7654c13a2e343397ee466124f31339",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 141336,
+                        "url-template": "https://download.kde.org/stable/gcompris/qt/src/gcompris-qt-$version.tar.xz"
+                    }
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/files.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/icon.patch"
+                }
+            ]
+        }
+    ]
 }
